@@ -1,0 +1,46 @@
+[solver]
+epsilon = 0.01
+tolerance = 1e-12
+max_iterations = 500
+max_objective_evaluations = 1000
+kkt_timing_threshold = 1e-5
+
+[cases.case1]
+image = "phantom.png"
+image_sha256 = "552ff698167aa402cceb17981130607a228a0a0aa7c519299eaa4d5f301ba36c"
+size = 128
+mask_count = 6
+mask_seed = 25
+spectral_seed = 26
+random_initial_seeds = [41, 42, 43, 44, 45]
+noise = "none"
+report_relative_threshold = 1e-7
+report_kkt_threshold = 1e-8
+
+[cases.case2]
+image = "camera.png"
+image_sha256 = "b0793d2adda0fa6ae899c03989482bff9a42d3d5690fc7e3648f2795d730c23a"
+size = 128
+mask_count = 3
+mask_seed = 125
+spectral_seed = 126
+noise_seed = 127
+noise = "poisson"
+target_snr_db = 20.0
+compare_unconstrained = true
+
+[cases.case3]
+image = "astronaut.png"
+image_sha256 = "88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5"
+size = 256
+mask_count = 4
+mask_seed = 225
+spectral_seed = 226
+noise_seed = 227
+noise = "gaussian"
+target_snr_db = 30.0
+compare_unconstrained = true
+
+[ablation]
+case = "case2"
+initial_scale = 0.01
